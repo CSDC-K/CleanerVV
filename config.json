@@ -1,0 +1,7 @@
+{
+    "Temp": true,
+    "%Temp%": true,
+    "Startup": true,
+    "SoftwareDistribution": true,
+    "ipconfig /flushdns": true
+}

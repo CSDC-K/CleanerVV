@@ -1,0 +1,13 @@
+2024:4:11 || 10:0
+
+
+         INTERACTIVES        
+
+       - DNS FLUSHED
+        -TEMP DELETED
+        -WINDOWS TEMP DELETED
+        -SOFTWAREDISTRIBUTION DELETED
+        -STARTUP DELETED
+
+        LATEST CLEAN LOG
+
