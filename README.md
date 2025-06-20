@@ -5,7 +5,7 @@
 ![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge)
 
 <p align="center">
-  <img src="docs/python.gif" alt="CleanerVV Demo" width="1200" height="600">
+  <img src="docs/python.gif" alt="CleanerVV Demo" width="900" height="500">
 </p>
 
 > **CleanerVV** is a powerful, fully offline Python-based cleaner for Windows. It offers user-selectable cleaning operations including temp folders, startup folder, SoftwareDistribution, and DNS flushing. Configuration is managed via an interactive CLI and saved to `config.json`, while all actions are logged in `LOG.txt`.
