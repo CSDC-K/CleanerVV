@@ -8,7 +8,7 @@
   <img src="docs/cleaner_demo.gif" alt="CleanerVV Demo" width="1200" height="600">
 </p>
 
-> **CleanerVV** is a sleek, offline Python utility to clean up temporary files, broken registry paths, and general PC junk. Built with CustomTkinter for a modern look and feel.
+> **CleanerVV** is a powerful, fully offline Python-based cleaner for Windows. It offers user-selectable cleaning operations including temp folders, startup folder, SoftwareDistribution, and DNS flushing. Configuration is managed via an interactive CLI and saved to `config.json`, while all actions are logged in `LOG.txt`.
 
 ---
 
@@ -16,12 +16,13 @@
 
 |  | Capability |
 |:--|:--|
-| 🧹 **Deep System Cleaning** | Automatically deletes temp files, recent files, and other unnecessary clutter. |
-| 📂 **Targeted Folder Cleanup** | Removes contents from common junk locations like `%temp%`, `prefetch`, and more. |
-| 🧠 **Registry Cleaner (Static)** | Predefined cleanup of known problematic registry entries. |
-| 🧼 **One-Click Clean** | Simplified user interface with just a single click to start cleanup. |
-| 🖼️ **Modern UI** | Uses CustomTkinter for a stylish and minimal interface. |
-| 🔐 **Offline Operation** | Runs entirely offline with no dependencies on external services. |
+| 🧹 **Temp Folder Cleanup** | Deletes user-level and Windows temp directories. |
+| 🚫 **Startup Folder Wipe** | Removes files from the startup folder to prevent auto-launch programs. |
+| 🔄 **SoftwareDistribution Flush** | Cleans cached Windows Update files. |
+| 🌐 **DNS Cache Flush** | Runs `ipconfig /flushdns` automatically. |
+| ⚙️ **Interactive CLI Config** | Toggle cleaning targets using a styled checkbox menu (via InquirerPy). |
+| 🪵 **Auto Logging** | All cleanup results are logged to `LOG.txt` with timestamped summaries. |
+| 🐍 **Lightweight Python Script** | No GUI required — runs smoothly in terminal. |
 
 ---
 
@@ -29,17 +30,11 @@
 
 ```text
 CleanerVV/
-├── main.py                 # GUI entry point
-├── core/
-│   ├── clean_temp.py       # Handles deletion of temp files
-│   ├── clean_registry.py   # Registry logic (static)
-│   └── paths.py            # Common junk paths definitions
-├── assets/
-│   └── icons/              # Optional icons for UI
-├── docs/
-│   └── cleaner_demo.gif    # Demonstration visual
-├── requirements.txt        # Dependency list
-└── LICENSE
+├── vv clean.py         # Main CLI logic, cleanup engine & menus
+├── config.json         # Stores toggleable cleanup options
+├── requirements.txt    # Python dependencies
+├── LOG.txt             # Latest cleanup log with actions taken
+└── README.md           # You're reading it.
 ```
 
 ---
@@ -48,52 +43,53 @@ CleanerVV/
 
 ### Prerequisites
 
-* Windows 10/11
-* Python **3.10+**
+- Windows 10/11
+- Python 3.10 or newer
 
 ### Installation
 
 ```bash
-# 1. Clone the repository
+# 1. Clone the repo
 $ git clone https://github.com/CSDC-K/CleanerVV.git
 $ cd CleanerVV
 
-# 2. Set up a virtual environment (optional but recommended)
+# 2. (Optional) Set up virtual environment
 $ python -m venv .venv
 $ .\.venv\Scripts\activate
 
-# 3. Install dependencies
+# 3. Install required packages
 $ pip install -r requirements.txt
 
-# 4. Launch the cleaner
-$ python main.py
+# 4. Run the program
+$ python "vv clean.py"
 ```
 
 ---
 
-## 🧼 How It Works
+## 🧼 Usage Overview
 
-1. Launch the program.
-2. Click the **Clean** button.
-3. The system will clean up temp files and optionally target known junk folders.
-4. Optionally, registry keys are purged from known static problem areas.
-5. Progress is shown in real time.
+- On launch, you'll see a terminal-based ASCII UI.
+- Use arrow keys to choose:
+  - `Start Clean`: Performs cleanup based on `config.json`
+  - `Options`: Toggle folders and actions to be cleaned
+  - `Credits`: Display author/company info
+  - `Exit`: Quit the app
 
-> **Note:** The tool avoids aggressive registry editing. It is safe for general use, but advanced users can modify `clean_registry.py`.
+> Results of each clean are saved to `LOG.txt` with date and time.
 
 ---
 
 ## 🧾 Requirements
 
-Dependencies are listed in [`requirements.txt`](requirements.txt):
+Dependencies as defined in [`requirements.txt`](requirements.txt):
 
-```text
-customtkinter
+```txt
+InquirerPy
+pystyle
 ctypes
-shutil
 ```
 
-Install them using:
+Install them with:
 
 ```bash
 pip install -r requirements.txt
@@ -101,27 +97,9 @@ pip install -r requirements.txt
 
 ---
 
-## 🛠️ Roadmap
-
-- [ ] Add optional aggressive registry cleaner
-- [ ] Add scheduling support to clean periodically
-- [ ] System tray minimization
-- [ ] GUI themes (dark/light mode)
-
----
-
-## 🤝 Contributing
-
-1. Fork the repo & create your branch: `git checkout -b feature/cleanup-enhancement`
-2. Commit your changes: `git commit -m "✨ Add feature"`
-3. Push to GitHub: `git push origin feature/cleanup-enhancement`
-4. Open a **Pull Request** ✅
-
----
-
 ## 📜 License
 
-Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more information.
+Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for details.
 
 ---
 
